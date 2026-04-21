@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klauss Sousa - Sociedade Individual de Advocacia</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #c5a572;
+            --accent-color: #8b0000;
+            --light-color: #f8f9fa;
+            --dark-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #152642;
+            border-color: #152642;
+        }
+        
+        .text-secondary {
+            color: var(--secondary-color) !important;
+        }
+        
+        .bg-accent {
+            background-color: var(--accent-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .icon-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .icon-box i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        .company-info-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            background-color: white;
+            height: 100%;
+        }
+        
+        .company-info-card h5 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .company-detail-item {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .company-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .company-detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5562998414047" class="whatsapp-btn" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-scale-balanced me-2 text-secondary"></i>Klauss Sousa
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Áreas de Atuação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-4">Defendendo Seus Direitos Com Excelência Jurídica</h1>
+                    <p class="lead mb-4">Há mais de 2 anos oferecendo soluções jurídicas personalizadas e eficientes para clientes em Cocalzinho de Goiás e região.</p>
+                    <div class="highlight-box bg-white text-dark p-3 rounded">
+                        <p class="mb-0"><i class="bi bi-check-circle-fill text-primary me-2"></i>Atendimento personalizado e comprometido com resultados</p>
+                    </div>
+                    <a href="#contato" class="btn btn-primary btn-lg mt-4">Agende uma Consulta <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre o Escritório</h2>
+                    <p class="mb-4">A <strong>Klauss Sousa Sociedade Individual de Advocacia</strong> é um escritório jurídico comprometido com a defesa dos direitos de seus clientes, oferecendo serviços jurídicos de alta qualidade com ética, transparência e dedicação.</p>
+                    
+                    <div class="company-info-card mb-4">
+                        <h5 class="text-primary">Informações da Empresa</h5>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">Razão Social:</div>
+                            <div>Klauss Sousa Sociedade Individual de Advocacia</div>
+                        </div>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">CNPJ:</div>
+                            <div>53.256.477/0001-07</div>
+                        </div>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">Data de Abertura:</div>
+                            <div>18/12/2023 (2 anos de atuação)</div>
+                        </div>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">Natureza Jurídica:</div>
+                            <div>Sociedade Unipessoal de Advocacia</div>
+                        </div>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">Capital Social:</div>
+                            <div>R$ 1.000,00</div>
+                        </div>
+                        <div class="company-detail-item">
+                            <div class="company-detail-label">Situação:</div>
+                            <div><span class="badge bg-success">Ativa</span> desde 18/12/2023</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h2 class="section-title">Nossa Missão</h2>
+                    <p class="mb-4">Oferecer soluções jurídicas eficientes e personalizadas, garantindo a defesa dos direitos de nossos clientes com excelência, ética e comprometimento.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box text-center">
+                                <i class="bi bi-award"></i>
+                                <h4>Excelência</h4>
+                                <p>Compromisso com a qualidade e excelência em todos os serviços prestados.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box text-center">
+                                <i class="bi bi-shield-check"></i>
+                                <h4>Ética Profissional</h4>
+                                <p>Atuação pautada nos mais elevados princípios éticos da advocacia.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box text-center">
+                                <i class="bi bi-people"></i>
+                                <h4>Foco no Cliente</h4>
+                                <p>Atendimento personalizado e atenção às necessidades específicas de cada cliente.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box text-center">
+                                <i class="bi bi-lightbulb"></i>
+                                <h4>Soluções Eficazes</h4>
+                                <p>Estratégias jurídicas criativas para alcançar os melhores resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section id="servicos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Áreas de Atuação</h2>
+            <p class="text-center mb-5">Oferecemos serviços jurídicos especializados em diversas áreas do direito para atender às necessidades de nossos clientes.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-house-door"></i>
+                        <h4>Direito Civil</h4>
+                        <p>Contratos, responsabilidade civil, direitos do consumidor, propriedade e posse, indenizações, entre outros.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-briefcase"></i>
+                        <h4>Direito Trabalhista</h4>
+                        <p>Reclamações trabalhistas, rescisões, acidentes de trabalho, assédio moral e direitos do trabalhador.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-cash-coin"></i>
+                        <h4>Direito Previdenciário</h4>
+                        <p>Aposentadorias, pensões, benefícios por incapacidade, revisões e cálculos de benefícios previdenciários.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-building"></i>
+                        <h4>Direito Imobiliário</h4>
+                        <p>Compra e venda de imóveis, locação, regularização de propriedades, usucapião e condomínios.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-car-front"></i>
+                        <h4>Direito do Trânsito</h4>
+                        <p>Defesa em processos de multas, suspensão e cassação de CNH, recursos administrativos e judiciais.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-person-vcard"></i>
+                        <h4>Direito de Família</h4>
+                        <p>Divórcio, pensão alimentícia, guarda de filhos, inventário, partilha de bens e adoção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Localização -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2 class="section-title">Entre em Contato</h2>
+                    <p class="mb-4">Estamos à disposição para esclarecer suas dúvidas e oferecer a melhor solução jurídica para o seu caso.</p>
+                    
+                    <div class="contact-info mb-5">
+                        <div class="d-flex mb-3">
+                            <div><i class="bi bi-envelope"></i></div>
+                            <div>
+                                <h5>E-mail</h5>
+                                <p><a href="mailto:klauss.adv@gmail.com">klauss.adv@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-3">
+                            <div><i class="bi bi-telephone"></i></div>
+                            <div>
+                                <h5>Telefone/WhatsApp</h5>
+                                <p><a href="tel:+5562998414047">(62) 99841-4047</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h5>Endereço</h5>
+                                <p>
+                                    Avenida Anápolis, 25 - Quadra 8, Lote 1<br>
+                                    Cidade Jardim<br>
+                                    Cocalzinho de Goiás - GO<br>
+                                    CEP: 72975-000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded">
+                        <h5 class="text-primary">Horário de Atendimento</h5>
+                        <p class="mb-2"><strong>Segunda a Sexta:</strong> 8h às 18h</p>
+                        <p class="mb-0"><strong>Sábado:</strong> 8h às 12h (com agendamento prévio)</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 mt-4 mt-lg-0">
+                    <div class="company-info-card">
+                        <h5 class="text-primary">Para Correspondência</h5>
+                        <p class="mb-0">
+                            Klauss Sousa Sociedade Individual de Advocacia<br>
+                            Avenida Anápolis, 25 - Quadra 8, Lote 1<br>
+                            Cidade Jardim<br>
+                            Cocalzinho de Goiás - GO<br>
+                            CEP: 72975-000
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="section-title">Envie uma Mensagem</h5>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Seu nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Seu telefone">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Sua mensagem" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-3"><i class="bi bi-scale-balanced me-2"></i>Klauss Sousa</h4>
+                    <p>Sociedade Individual de Advocacia</p>
+                    <p>CNPJ: 53.256.477/0001-07</p>
+                    <p class="mb-0">© 2025 Klauss Sousa Advocacia. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Áreas de Atuação</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Siga-nos</h5>
+                    <div class="d-flex">
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4 border-top border-secondary">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">Este site é apenas para fins informativos. O conteúdo não constitui aconselhamento jurídico.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow');
+            } else {
+                navbar.classList.remove('shadow');
+            }
+        });
+    </script>
+</body>
+</html>
